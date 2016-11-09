@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	.header,#footer{
+		height: 60px;
+		width: 100%;
+		background-color: #ccc;
+	}
+
+.mid{
+float: left;
+width: 100%;
+}
+.mid .mid-content {
+		min-height: 80px;
+		min-width: 20px;
+		background-color: green;
+		margin-left:200px;
+		margin-right:200px;
+	}
+
+.aside {
+		float: left;
+		width: 200px;
+		min-height: 60px;
+		background-color: yellow;
+		margin-left: -100%;
+	}
+	.extra {
+		float: left;
+		width: 200px;
+		height: 60px;
+		background-color: blue;
+		margin-left:-200px; 
+	}
+	.main {
+		*zoom:1;
+	}
+	.main:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+
+
+	</style>
+
+</head>
+<body>
+	<div class="header">header</div>
+<div class="main">
+	<div class="mid">
+		<div class="mid-content">是打发中间自适应</div>
+	</div>
+<div class="aside">侧栏边定宽</div>
+<div class="extra">右侧顶宽</div>
+</div>
+<div id="footer">footer</div>
+
+
+</body>
+</html>
