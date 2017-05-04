@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax-test</title>
+    <script src="./ajax.js" charset="utf-8"></script>
+    <style media="screen">
+        body {
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .text {
+            margin-top: 10px;
+            width: 900px;
+            height: 500px;
+            /*border-style: dashed;*/
+            border: 1px dashed #999;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn">Send</button>
+    <p class="text"></p>
+    <script type="text/javascript">
+        const btn = document.querySelector('.btn')
+        const jsonBird = 'https://bird.ioliu.cn/v1?url='
+        const doubanMovie = 'http://api.douban.com/v2/movie/in_theaters'
+        const url = `${jsonBird}${doubanMovie}`
+        const weather = 'http://api.asilu.com/weather/'
+        function success(data) {
+          const text = document.querySelector('.text')
+          text.textContent = data
+        }
+        btn.addEventListener('click', () => {
+            ajax({
+                url: weather,
+                type: 'get',
+                data : {
+                  city : '珠海'
+                },
+                // timeout : 3000,
+                jsonp :'success',
+                error: (status) => {
+                    console.log(status)
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
